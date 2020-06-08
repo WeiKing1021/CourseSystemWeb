@@ -1,0 +1,28 @@
+<div>
+  <div class="w-100 text-center">
+    <h3>新增學生資料</h3>
+  </div>
+  <hr>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">學號</span>
+    </div>
+    <input type="text" class="form-control" placeholder="D0872781" [(ngModel)]="this.studentId">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">姓名</span>
+    </div>
+    <input type="text" class="form-control" placeholder="桐谷和人" [(ngModel)]="this.studentName">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">班級</span>
+    </div>
+    <input type="text" class="form-control" placeholder="資訊二丁" [(ngModel)]="this.classId">
+  </div>
+  <div class="text-center py-2">
+    <button type="button" class="mx-2 btn btn-lg btn-success" (click)="this.register()">新增</button>
+    <button type="button" class="mx-2 btn btn-lg btn-secondary" (click)="this.clear()">清空</button>
+  </div>
+</div>

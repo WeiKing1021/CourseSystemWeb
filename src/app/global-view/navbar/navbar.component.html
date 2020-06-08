@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary">
+  <a class="navbar-brand" routerLink="/">
+    <img src="assets/images/index.png" width="144" height="32" class="m-2 d-inline-block align-top">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item">
+          <div class="nav-link">
+            <a class="text-white" routerLink="/">
+              <h4>首頁</h4>
+            </a>
+          </div>
+        </li>
+        <ng-container *ngIf="this.studentManager.hasLogin()">
+          <!-- 學生資料 -->
+          <!--
+          <li class="nav-item">
+            <div class="nav-link">
+              <a class="text-white" routerLink="/student">
+                <h4>學生資料(無功能)</h4>
+              </a>
+            </div>
+          </li>
+          -->
+          <!-- 課程導覽 -->
+          <li class="nav-item dropdown">
+            <div class="nav-link" data-toggle="dropdown">
+              <a class="text-white" href="#">
+                <h4>課程導覽</h4>
+              </a>
+            </div>
+            <div class="dropdown-menu bg-dark">
+              <div class="nav-link">
+                <a class="text-white" routerLink="/allCourse">
+                  <h4>課程總覽</h4>
+                </a>
+              </div>
+              <div class="nav-link">
+                <a class="text-white" routerLink="/enrollCourse">
+                  <h4>讓我選課</h4>
+                </a>
+              </div>
+              <div class="nav-link">
+                <a class="text-white" routerLink="/dropCourse">
+                  <h4>讓我退選</h4>
+                </a>
+              </div>
+              <div class="nav-link">
+                <a class="text-white" routerLink="/trackCourse">
+                  <h4>我的追蹤</h4>
+                </a>
+              </div>
+            </div>
+          </li>
+          <!-- 課程導覽結束 -->
+        </ng-container>
+        <li class="nav-item">
+          <div class="nav-link">
+            <a class="text-white" routerLink="/register">
+              <h4>新增帳戶</h4>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="p-1 text-white" *ngIf="this.studentManager.hasLogin()">
+      <button type="button" class="btn btn-light btn-block">
+        {{ this.studentManager.getStudent().name }} - {{ this.studentManager.getStudent().uid }}
+      </button>
+    </div>
+    <div class="p-1 text-white">
+      <div *ngIf="this.studentManager.hasLogin(); else notLogin">
+        <button (click)="this.studentManager.logout()" routerLink="/student" type="button" class="btn btn-light btn-block">朋友，快登出!</button>
+      </div>
+      <ng-template #notLogin>
+        <div>
+          <button (click)="this.studentManager.callLoginPage()" type="button" class="btn btn-light btn-block">朋友，請登入!</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+<div class="w-100 py-3">
+  <div class="w-100">
+    <h4>
+      <ng-container *ngIf="this.course.required == true; else notRequire">
+        <span class="badge badge-pill badge-danger">必修</span>
+      </ng-container>
+      <ng-template #notRequire>
+        <span class="badge badge-pill badge-primary">選修</span>
+      </ng-template>
+      <span class="mx-2">{{ this.course.name }}</span>
+    </h4>
+  </div>
+  <div class="px-5 w-100">
+    <div>
+      <span>課程代碼：</span>
+      <span>{{ this.course.id }}</span>
+    </div>
+    <div>
+      <span>學分數：</span>
+      <span>{{ this.course.credits }}</span>
+    </div>
+    <div>
+      <span>開課班級：</span>
+      <span>{{ this.getGivenClassText() }}</span>
+    </div>
+    <div>
+      <span>開課人數：</span>
+      <span>{{ this.course.currentStudents }} / {{ this.course.maxStudents }}</span>
+    </div>
+    <div>
+      <span>開課教師：</span>
+      <span>{{ this.course.teacherId }}</span>
+    </div>
+    <div>
+      <span>課程時間：</span>
+    </div>
+    <div class="px-3">
+      <div *ngFor="let time of this.course.time">
+        <span>{{ this.getWeekText(time.week) }}</span>
+        <span>{{ this.getSessionText(time.session) }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="text-right">
+    <button type="button" class="btn btn-lg btn-success mx-2" *ngIf="this.showEnroll" (click)="this.enroll()">加選</button>
+    <button type="button" class="btn btn-lg btn-danger mx-2" *ngIf="this.showDrop" (click)="this.drop()">退選</button>
+    <button type="button" class="btn btn-lg btn-secondary mx-2" *ngIf="this.showTrack" (click)="this.track()">追蹤</button>
+    <button type="button" class="btn btn-lg btn-warning mx-2" *ngIf="this.showUntrack" (click)="this.untrack()">退追蹤</button>
+  </div>
+</div>
+<hr>

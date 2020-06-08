@@ -1,0 +1,26 @@
+<div>
+  <span class="text-center">
+    <h3>課程查詢</h3>
+  </span>
+  <hr>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">課程代碼</span>
+    </div>
+    <input class="form-control" type="tel" placeholder="####" [(ngModel)]="this.courseId"/>
+  </div>
+  <div class="text-center py-2">
+    <button type="button" class="mx-2 btn btn-lg btn-success" (click)="this.search()">查詢</button>
+    <button type="button" class="mx-2 btn btn-lg btn-secondary" (click)="this.clear()">清空</button>
+  </div>
+  <hr>
+  <ng-container *ngIf="this.course != null">
+    <app-course-info
+      [course] = this.course
+      [showEnroll] = true
+      [showDrop] = true
+      [showTrack] = true
+      [showUntrack] = true>
+    </app-course-info>
+  </ng-container>
+</div>

@@ -1,0 +1,38 @@
+<div class="contaier fixed-top w-100 login" [ngClass]="this.studentManager.showLogin ? 'show' : 'invisible'">
+  <div class="login-block px-2">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">登入</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="this.cancel()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>帳號</label>
+            <input type="text" class="form-control" [(ngModel)]="this.uid">
+          </div>
+          <div class="form-group">
+            <label>密碼</label>
+            <input type="password" class="form-control" [(ngModel)]="this.password">
+          </div>
+          <div class="d-flex justify-content-center" *ngIf="this.loading">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="this.errorMessage != null">
+            {{ this.errorMessage }}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="this.login()">
+            登入
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="this.cancel()">
+            取消
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

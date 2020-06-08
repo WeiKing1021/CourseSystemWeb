@@ -1,0 +1,20 @@
+<div class="contaier fixed-top w-100 notification" [ngClass]="this.not.display ? 'show' : 'invisible'">
+  <div class="notification-block px-2">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">告訴你一個大！秘！密！</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="this.not.close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{{ this.not.message }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="this.not.close()">關閉</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

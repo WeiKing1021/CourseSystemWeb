@@ -1,0 +1,16 @@
+<div>
+  <span class="text-center">
+    <h3>課程總覽</h3>
+  </span>
+  <hr>
+  <ng-container *ngIf="this.courses != null">
+    <div *ngFor="let course of this.courses">
+      <app-course-info
+        [course] = course
+        [showEnroll] = true
+        [showDrop] = true
+        [showTrack] = true
+        [showUntrack] = true></app-course-info>
+    </div>
+  </ng-container>
+</div>

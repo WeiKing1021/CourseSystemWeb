@@ -1,0 +1,22 @@
+<ng-container *ngIf="this.studentManager.hasLogin()">
+  <div class="text-center">
+    <h3>個人資料</h3>
+  </div>
+  <div>
+    <span>學號：</span>
+    <span>{{ this.studentManager.getStudent().uid }}</span>
+  </div>
+  <div>
+    <span>姓名：</span>
+    <span>{{ this.studentManager.getStudent().name }}</span>
+  </div>
+  <div>
+    <span>班級：</span>
+    <span>{{ this.studentManager.getStudent().classId }}</span>
+  </div>
+  <div>
+    <span>目前學分：</span>
+    <span>{{ this.credits }}</span>
+  </div>
+  <hr>
+</ng-container>
