@@ -34,6 +34,13 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    if (this.studentId.length > 8) {
+
+      this.not.send('「學號」不得超過 8 個字!');
+
+      return;
+    }
+
     if (this.studentName == null) {
 
       this.not.send('「姓名」不得為空!');
